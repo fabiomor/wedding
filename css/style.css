@@ -409,7 +409,7 @@ button:focus{
 }
 .lbox-details p strong{
 	color: #dd666c;
-	font-size: 40px;
+	font-size: 4em;
 	font-family: 'Marck Script', cursive;
 }
 .lbox-details a.btn{
@@ -424,6 +424,38 @@ button:focus{
 }
 .lbox-details a.btn:hover{
 	background: #dd666c;
+}
+
+
+/*------------------------------------------------------------------
+    Countdown
+-------------------------------------------------------------------*/
+.countdown {
+	padding: 30px 10px;
+	text-align: center;
+}
+
+#clockdiv{
+	font-family: sans-serif;
+	color: #000000;
+	display: inline-block;
+	font-weight: 100;
+    font-size: 3em;
+    font-family: 'Marck Script', cursive;
+}
+
+#clockdiv > div{
+	padding: 10px;
+	border-radius: 3px;
+	/*background: #dd666c;*/
+	display: inline-block;
+}
+
+#clockdiv div > span{
+	padding: 15px;
+	border-radius: 3px;
+	/*background: #63c7bd;*/
+	display: inline-block;
 }
 
 /*------------------------------------------------------------------
