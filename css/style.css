@@ -492,6 +492,13 @@ button:focus{
 /*------------------------------------------------------------------
     Story
 -------------------------------------------------------------------*/
+.rotate180 {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
 
 .story-box{
 	padding: 70px 0px;
@@ -546,6 +553,11 @@ button:focus{
     top: 20px;
     margin-left: -10px;
 }
+
+.timeline-img > img{
+	max-height: 250px;
+}
+
 .main-timeline-box .timeline-text-content {
     padding: 30px 35px;
 	background: #f1f1f1;
