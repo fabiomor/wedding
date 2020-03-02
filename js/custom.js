@@ -75,5 +75,8 @@
 			  }
 		}
 	});
-	
 }(jQuery));
+
+(function(){
+	emailjs.init('user_Uc0vXE1rNJSAuVBL282oL');
+ })();

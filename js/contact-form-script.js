@@ -2,11 +2,28 @@ $("#contactForm").validator().on("submit", function (event) {
     if (event.isDefaultPrevented()) {
         // handle the invalid form...
         formError();
-        submitMSG(false, "Did you fill in the form properly?");
+        submitMSG(false, "Controlla i campi inseriti");
     } else {
         // everything looks good!
         event.preventDefault();
-        submitForm();
+        //submitForm();
+        if (grecaptcha.getResponse() == "") {
+            submitMSG(false, "Verificare captcha");
+        }
+        else {
+            var name = $("#name").val();
+            var guest = $("#guest").val();
+            var event = $("#event").val();
+            var message = $("#message").val();
+            var params = {
+                name: name,
+                message: message,
+                guest: guest,
+                event: event
+            }
+            formSuccess();
+            emailjs.send('gmail', 'template_3aRq94v9', params).then(function(response) {formSuccess();}, function(error) {formError();});
+        }
     }
 });
 
@@ -34,19 +51,19 @@ $("#contactForm").validator().on("submit", function (event) {
 //     });
 // }
 
-function formSuccess(){
+function formSuccess() {
     $("#contactForm")[0].reset();
-    submitMSG(true, "Message Submitted!")
+    submitMSG(true, "Messaggio Inviato!")
 }
 
-function formError(){
-    $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+function formError() {
+    $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
         $(this).removeClass();
     });
 }
 
-function submitMSG(valid, msg){
-    if(valid){
+function submitMSG(valid, msg) {
+    if (valid) {
         var msgClasses = "h3 text-center tada animated text-success";
     } else {
         var msgClasses = "h3 text-center text-danger";
