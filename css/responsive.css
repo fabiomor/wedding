@@ -12,6 +12,10 @@
 	.gallery-box ul li{
 		width: 33.33%;
 	}
+
+	#clockdiv {
+		font-size: 2.5em;
+	}
 }
 
 /* mobile or only mobile */
@@ -66,5 +70,9 @@
 	}
 	.gallery-box ul li{
 		width: 50%;
+	}
+
+	#clockdiv {
+		font-size: 1.5em;
 	}
 }
