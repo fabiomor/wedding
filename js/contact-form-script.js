@@ -2,14 +2,16 @@ $("#contactForm").validator().on("submit", function (event) {
     if (event.isDefaultPrevented()) {
         // handle the invalid form...
         formError();
-        submitMSG(false, "Controlla i campi inseriti");
+        submitMSG(false, "Controllare i campi inseriti");
     } else {
         // everything looks good!
         event.preventDefault();
         //submitForm();
-        if (grecaptcha.getResponse() == "") {
-            submitMSG(false, "Verificare captcha");
-        }
+        if(false){}
+        // if (grecaptcha.getResponse() == "") {
+        //     formError();
+        //     submitMSG(false, "Verificare captcha");
+        // }
         else {
             var name = $("#name").val();
             var guest = $("#guest").val();
@@ -21,8 +23,7 @@ $("#contactForm").validator().on("submit", function (event) {
                 guest: guest,
                 event: event
             }
-            formSuccess();
-            emailjs.send('gmail', 'template_3aRq94v9', params).then(function(response) {formSuccess();}, function(error) {formError();});
+            emailjs.send('gmail', 'template_3aRq94v9', params).then(function(response) {formSuccess(); console.log(response)}, function(error) {formError(); console.log(error);});
         }
     }
 });
